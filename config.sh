@@ -1,2 +1,3 @@
-todofile=~/.todo-txt/todo.txt
-donefile=~/.todo-txt/done.txt
+todofolder=~/.todo-txt
+todofile=todo.txt
+donefile=done.txt
