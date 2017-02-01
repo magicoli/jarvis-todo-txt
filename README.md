@@ -26,10 +26,14 @@ You: make me think about buying milk
 Jarvis: added "buying milk" to your todo list
 You: remind me to call mum
 Jarvis: added "call mum" to your todo list
+
 You: tell me what to do
 Jarvis: task 1: buying milk
 Jarvis: task 2: call mum
 You: i finished task 2
+Jarvis: finished task 2 "call mum"
+
+You: i finished call mum
 Jarvis: finished task 2 "call mum"
 ```
 
