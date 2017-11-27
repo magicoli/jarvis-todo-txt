@@ -6,9 +6,11 @@
 # pg for PluGin
 # XX is a short code for your plugin, ex: ww for Weather Wunderground
 # You can use translations provided in the language folders functions.sh
+todo_txt=$(which todo-txt || which todo.sh)
+
 pg_todo_tasknum () {
   echo $@ | grep "^[0-9][0-9]*$" && return
-  count=$(todo-txt list $@ | tail -1 | cut -d " " -f 2) || return $?
+  count=$($todo_txt list $@ | tail -1 | cut -d " " -f 2) || return $?
   if [ $count -ne 1 ]
   then
     say "Il n'y a aucune tâche correspondant à $@"
@@ -18,32 +20,32 @@ pg_todo_tasknum () {
     say "Il y a $count tâches correspondant à $@"
     return -1
   else
-    echo $(todo-txt list $@ | head -1 | cut -d " " -f 1)
+    echo $($todo_txt list $@ | head -1 | cut -d " " -f 1)
     return
   fi
 }
 pg_todo_add () {
-  output=$(todo-txt add "$@") \
+  output=$($todo_txt add "$@") \
     && output=$(echo $output | sed "s/ TODO:.*//" | sed "s/^\([0-9]*\)/\\1:/") \
     && echo "$output" \
     || return $?
 }
 pg_todo_del () {
   tasknr=$(pg_todo_tasknum "$@") \
-    && output=$(todo-txt -f -n del $tasknr) \
+    && output=$($todo_txt -f -n del $tasknr) \
     && output=$(echo $output | sed "s/ TODO:.*//" | sed "s/^\([0-9]*\)/\\1:/") \
     && echo $output && return \
     || return $?
 }
 pg_todo_done () {
   tasknr=$(pg_todo_tasknum "$@") \
-    && output=$(todo-txt -f -n move $tasknr $donefile) \
+    && output=$($todo_txt -f -n move $tasknr $donefile) \
     && output=$(echo $output | sed "s/ TODO:.*//" | sed "s/^\([0-9]*\)/\\1:/") \
     && echo $output && return \
     || return $?
 }
 pg_todo_list () {
-  todo-txt -p -P -+ -@ list \
+  $todo_txt -p -P -+ -@ list \
     | egrep -v "\--|^TODO:" \
     | head -5 \
     | sed "s/^\([0-9][0-9]*\) [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9] /\\1 /" \
