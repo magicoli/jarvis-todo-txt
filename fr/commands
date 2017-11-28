@@ -1,4 +1,4 @@
-*PENSE* AU (*)|*PENSE* A (*)|RAPPEL*DE (*)|RAPPEL*D'(*)/(*)|RAPPEL*D(*)==say "Tâche $(pg_todo_add "(1)"), ajoutée"
+*PENSE* AU (*)|*PENSE* A (*)|RAPPELLE-MOI DE (*)|RAPPELLE-MOI D'(*)/(*)|RAPPELLE-MOI D(*)==say "Tâche $(pg_todo_add "(1)"), ajoutée"
 *SUPPRIME*TACHE*NUMERO (*)|*ANNULE*TACHE*NUMERO(*)|*SUPPRIME*TACHE* (*)|*ANNULE*TACHE (*)|*EFFACE*TACHE (*)==output=$(pg_todo_del "(1)") && say "Tâche $output, supprimée" || say "Je n'ai pas pu supprimer la tâche (1)"
 *FINI*TACHE NUMERO (*)|*TERMINE*TACHE NUMERO (*)|*FINI*TACHE (*)|*TERMINE*TACHE (*)==output=$(pg_todo_done "(1)") && say "Tâche $output, marquée comme finie" || say "Je n'ai pas pu finir la tâche (1)"
 *LISTE*DE*TACHE*==pg_todo_list
