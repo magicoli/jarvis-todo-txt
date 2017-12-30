@@ -1,1 +1,4 @@
-*HELLO WORLD*==say "Hello World"
+*THINK* TO (*)|*THINK* OF (*)|REMIND ME TO (*)|REMIND ME (*)/(*)==say "Tâche $(pg_todo_add "(1)"), ajoutée"
+*DELETE TASK NUMBER (*)|*DELETE TASK (*)|*CANCEL TASK NUMBER (*)|*CANCEL TASK (*)==output=$(pg_todo_del "(1)") && say "Tâche $output, supprimée" || say "Je n'ai pas pu supprimer la tâche (1)"
+*ENDED TASK NUMBER (*)|*FINISHED TASK NUMBER (*)|*ENDED TASK (*)|*FINISHED TASK (*)==output=$(pg_todo_done "(1)") && say "Tâche $output, marquée comme finie" || say "Je n'ai pas pu finir la tâche (1)"
+*TASK LIST|*WHAT TO DO==pg_todo_list
