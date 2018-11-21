@@ -1,0 +1,4 @@
+*PENSA* A (*)|RICORDAMI DI (*)|RICORDAMI (*)/(*)==say "Task $(pg_todo_add "(1)"), aggiunto"
+*ELIMINA TASK NUMERO (*)|*ELIMINA TASK (*)|*CANCELLA TASK NUMERO (*)|*CANCELLA TASK (*)==output=$(pg_todo_del "(1)") && say "Task $output, eliminato" || say "Non posso eliminare il task (1)"
+*FINITO TASK NUMERO (*)|*COMPLETATO TASK NUMERO (*)|*FINITO TASK (*)|*COMPLETATO TASK (*)==output=$(pg_todo_done "(1)") && say "Task $output, segnato come finito" || say "Non riesco a finire il task (1)"
+*LISTA TASK|*COSA*FARE==pg_todo_list
